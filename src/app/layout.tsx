@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import React from 'react'
-import { Header } from './components/Header'
+import {Header} from './components/Header'
+import {PromptInput} from "@/src/app/components/Prompt";
 
 export const metadata = {
     title: 'Dall-e 2.0',
@@ -8,17 +9,15 @@ export const metadata = {
 }
 
 export default function RootLayout({
-    children
-}: {
+                                       children
+                                   }: {
     children: React.ReactNode
 }) {
     return (
         <html lang="en">
-            {/* Header */}
-            <Header />
-
-            {/* Prompt */}
-            <body>{children}</body>
+        <Header/>
+        <PromptInput/>
+        <body>{children}</body>
         </html>
     )
 }
