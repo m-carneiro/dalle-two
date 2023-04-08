@@ -1,21 +1,24 @@
-import "../styles/globals.css";
-import React from "react";
+import '../styles/globals.css'
+import React from 'react'
+import { Header } from './components/Header'
 
 export const metadata = {
-  title: "Dall-e 2.0",
-  description: "Chat GPT image creator",
-};
+    title: 'Dall-e 2.0',
+    description: 'Chat GPT image creator'
+}
 
 export default function RootLayout({
-  children,
+    children
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      {/* Header */}
+    return (
+        <html lang="en">
+            {/* Header */}
+            <Header />
 
-      <body>{children}</body>
-    </html>
-  );
+            {/* Prompt */}
+            <body>{children}</body>
+        </html>
+    )
 }
