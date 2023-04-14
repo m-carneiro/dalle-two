@@ -1,9 +1,17 @@
 'use client'
 import React, {useState} from 'react'
-
+import fetchSuggestionFromChatGPT from "@/lib/fetchSuggestionFromChatGPT";
+import useSWR from "swr";
 
 export function PromptInput() {
     const [input, setInput] = useState('')
+    const {
+        data: suggestion,
+        error,
+        isLoading,
+        mutate,
+        isValidating
+    } = useSWR('/api/suggestions', fetchSuggestionFromChatGPT, {revalidateOnFocus: false})
 
     return (
         <>
@@ -26,13 +34,15 @@ export function PromptInput() {
 
                     <button
                         className={"p-4 bg-blue-500 text-white transition-colors duration-200 font-bold disabled:text-gray-300 disabled:cursor-not-allowed disabled:bg-gray-400"}
-                        type={"button"}>Usar
+                        type={"button"}>
+                        Usar
                         Sugestão
                     </button>
 
                     <button
                         className={"p-4 bg-white text-blue-500 border-none transition-colors duration-200 rounded-b-md md:rounded-r-md md:rounded-bl-none font-bold"}
-                        type={"button"}>Nova
+                        type={"button"}>
+                        Nova
                         Sugestão
                     </button>
                 </form>
