@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 import React from 'react'
-import {Header} from './components/Header'
-import {PromptInput} from "@/src/app/components/Prompt";
+import {PromptInput} from "@/src/app/components/PromptInput";
+import {Header} from "@/src/app/components/Header";
+
 
 export const metadata = {
     title: 'Dall-e 2.0',
